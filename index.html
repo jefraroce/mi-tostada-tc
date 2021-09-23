@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Tostada - TintoCode</title>
+
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
+</head>
+<body>
+  <div class="toast animate__animated animate__tada" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Mi Tostada</strong>
+      <small id="tiempo-de-llegada"></small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Recuerda llamar a tu mama
+    </div>
+  </div>
+
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Ubicamos el elemento en nuestro DOM
+    let tostada = document.querySelector('.toast')
+    // Le deciamos a Bootstrap cual es el elemento y le damos unas configuraciones iniciales.
+    let controlTostada = new bootstrap.Toast(tostada, {
+      delay: 15000
+    })
+    // Le deciamos al nuevo elemento que debe hacer
+    controlTostada.show() // Mostrarse
+
+    let tiempoDeLlegada = document.querySelector('#tiempo-de-llegada')
+    let minutosDesdeLaLlegada = Math.ceil( Math.random() * 20 )
+    tiempoDeLlegada.innerHTML = `${minutosDesdeLaLlegada} minutos antes`
+  </script>
+</body>
+</html>
